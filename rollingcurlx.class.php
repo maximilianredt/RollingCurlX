@@ -149,6 +149,7 @@ Class RollingCurlX
 	private function startCurlRequests(&$multi_handle, &$requests_map)
 	{
 		while (count($this->queue) > 0 && $this->runningRequests < $this->_maxConcurrent) { //if requests left
+			$this->runningRequests++;
 			$ch = curl_init();
 
 			reset($this->queue);
